@@ -1,84 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartStop – Plan</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>SmartStop – Plan</title> <!-- Browser tab title -->
+  <link rel="stylesheet" href="style.css" /> <!-- Load external CSS file -->
 </head>
-<body>
-  <!-- Top bar -->
-  <header class="site-header">
-    <div class="site-header__left">
+
+<body> <!-- Page content begins -->
+
+  <!-- Top navigation bar -->
+  <header class="site-header"> <!-- Header container -->
+
+    <div class="site-header__left"> <!-- Left side: hamburger + brand -->
+
       <button
-        id="menuToggle"
-        class="menu-toggle"
-        aria-label="Open SmartStop menu"
-        aria-haspopup="true"
-        aria-controls="sidebar"
+        id="menuToggle"            
+        class="menu-toggle"        
+        aria-label="Open SmartStop menu" 
+        aria-haspopup="true"        
+        aria-controls="sidebar"     
       >
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
+        <!-- Hamburger icon bars -->
+        <span class="menu-toggle__bar"></span> <!-- 1st bar -->
+        <span class="menu-toggle__bar"></span> <!-- 2nd bar -->
+        <span class="menu-toggle__bar"></span> <!-- 3rd bar -->
       </button>
 
-      <span class="site-header__brand">SmartStop</span>
+      <span class="site-header__brand">SmartStop</span> <!-- Logo text -->
     </div>
 
-    <button class="plan-pill" type="button">
+    <button class="plan-pill" type="button"> <!-- Right-side “PLAN” pill -->
       PLAN
     </button>
+
   </header>
 
-  <!-- Main layout -->
-  <main class="layout" aria-label="SmartStop planner">
-    <!-- Saved Trips -->
+  <!-- Main content layout -->
+  <main class="layout" aria-label="SmartStop planner"> <!-- Two-column layout -->
+
+    <!-- Saved Trips (left panel) -->
     <section class="panel panel--saved" aria-labelledby="savedTripsHeading">
-      <header class="panel__header">
+      <header class="panel__header"> <!-- Panel title row -->
         <div class="panel__title-row">
-          <span class="star-icon">★</span>
+          <span class="star-icon">★</span> <!-- Icon -->
           <div>
-            <h2 id="savedTripsHeading" class="panel__title">Saved Trips</h2>
+            <h2 id="savedTripsHeading" class="panel__title">Saved Trips</h2> <!-- Section title -->
           </div>
         </div>
       </header>
 
       <div
-        id="savedTripsContainer"
-        class="saved-trips"
-        aria-live="polite"
+        id="savedTripsContainer"  
+        class="saved-trips"       
+        aria-live="polite"        
       >
         <!-- Populated by JavaScript -->
       </div>
     </section>
 
-    <!-- Save Route Form -->
+    <!-- Save Route Form (right panel) -->
     <section class="panel panel--form" aria-labelledby="saveRouteHeading">
       <header class="panel__header">
         <div class="panel__title-row">
-          <span class="arrow-icon">➜</span>
+          <span class="arrow-icon">➜</span> 
           <div>
-            <h2 id="saveRouteHeading" class="panel__title">Save Route</h2>
+            <h2 id="saveRouteHeading" class="panel__title">Save Route</h2> <!-- Section title -->
           </div>
         </div>
       </header>
 
-      <form id="routeForm" class="route-form" novalidate>
-        <div class="form-row">
-          <label for="routeName">Title</label>
+      <form id="routeForm" class="route-form" novalidate> <!-- Form that JS handles -->
+
+        <div class="form-row"> <!-- Route name input -->
+          <label for="routeName">Title</label> <!-- Accessible label -->
           <input
             type="text"
-            id="routeName"
+            id="routeName"        
             name="routeName"
-            placeholder="Enter route name..."
-            autocomplete="off"
+            placeholder="Enter route name..." 
+            autocomplete="off"  
           />
         </div>
 
-        <div class="form-row">
+        <div class="form-row"> <!-- From stop input -->
           <label for="fromStop">From</label>
           <input
-            list="stopsList"
+            list="stopsList"      
             id="fromStop"
             name="fromStop"
             placeholder="Enter starting location..."
@@ -86,7 +94,7 @@
           />
         </div>
 
-        <div class="form-row">
+        <div class="form-row"> <!-- To stop input -->
           <label for="toStop">To</label>
           <input
             list="stopsList"
@@ -97,32 +105,33 @@
           />
         </div>
 
-        <!-- datalist populated by JS so stops stay in sync -->
-        <datalist id="stopsList"></datalist>
+        <datalist id="stopsList"></datalist> <!-- Pre thougt of drop down list -->
 
-        <!-- Button row -->
-        <div class="form-actions">
-          <button type="submit" class="btn btn--primary">
+        <div class="form-actions"> <!-- Button container -->
+          <button type="submit" class="btn btn--primary"> <!-- Submits form -->
             Find Routes
           </button>
         </div>
+
       </form>
     </section>
   </main>
 
-  <!-- Sidebar (hamburger menu) -->
-  <div id="backdrop" class="backdrop" hidden></div>
+  <!-- Sidebar background overlay -->
+  <div id="backdrop" class="backdrop" hidden></div> <!-- Darkens page when menu open -->
 
+  <!-- Sidebar menu -->
   <aside
-    id="sidebar"
+    id="sidebar"          
     class="sidebar"
-    aria-label="SmartStop menu"
-    aria-hidden="true"
+    aria-label="SmartStop menu" 
+    aria-hidden="true"         
   >
-    <header class="sidebar__header">
+
+    <header class="sidebar__header"> <!-- Sidebar header with close button -->
       <h2 class="sidebar__title">SmartStop</h2>
       <button
-        id="closeSidebar"
+        id="closeSidebar"        
         class="sidebar__close"
         aria-label="Close menu"
       >
@@ -130,6 +139,7 @@
       </button>
     </header>
 
+    <!-- Sidebar navigation links -->
     <nav class="sidebar__nav">
       <ul>
         <li><button type="button" class="sidebar__link">Dashboard</button></li>
@@ -140,23 +150,27 @@
       </ul>
     </nav>
 
-    <footer class="sidebar__footer">
+    <footer class="sidebar__footer"> <!-- Non-functional note -->
       <p>Prototype only – menu items are not active.</p>
     </footer>
+
   </aside>
 
-  <!-- Route details modal -->
+  <!-- Dark overlay for modal -->
   <div id="modalOverlay" class="modal-overlay" hidden></div>
 
+  <!-- Route details modal -->
   <section
-    id="routeModal"
+    id="routeModal"     
     class="modal"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
+    aria-hidden="true"  
+    role="dialog"       
+    aria-modal="true"   
   >
-    <div class="modal__dialog">
-      <header class="modal__header">
+
+    <div class="modal__dialog"> <!-- Modal content box -->
+
+      <header class="modal__header"> <!-- Title + close button -->
         <h2 id="routeModalTitle" class="modal__title">Route Found!</h2>
         <button
           id="modalCloseBtn"
@@ -168,22 +182,28 @@
       </header>
 
       <div id="routeModalBody" class="modal__body">
-        <!-- Filled by JS -->
+        <!-- JS inserts route details here -->
       </div>
 
       <footer class="modal__footer">
         <button
-          id="modalSaveBtn"
+          id="modalSaveBtn"     
           class="btn btn--primary"
           type="button"
         >
           Save route
         </button>
       </footer>
+
     </div>
   </section>
 
-  <script src="script.js" defer></script>
+  <script src="script.js" defer></script> <!-- Load JS after HTML is parsed -->
 </body>
 </html>
 
+<!-- Used ChatGPT Model 5 with the following prompts:
+- Is there a way to rewrite the left column and right column using more semantic HTML, less <div> tags?
+- What line ensures that JS only runs after the HTML is fully rendered/gone through?
+- Can you comment out the parts of this file where JS is going to take action/provide details?
+-->

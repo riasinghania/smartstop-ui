@@ -1,54 +1,51 @@
-/* ===== Color tokens ===== */
-
-:root {
+:root { /* colors pulled from Adobe Wheel */
     --periwinkle: #d9e0ff;
     --gold: #bfaa6b;
     --cream: #fff5d9;
     --slate: #6a77ab;
     --navy: #25305c;
     --gray: #808080;
-  
-    --radius-xl: 24px;
-    --radius-lg: 18px;
-    --radius-pill: 999px;
+
+    --radius-xl: 24px; /* How rounded the boxes are: 24 is for cards/modals */
+    --radius-lg: 18px; /* 18 is for medium/not really rounded elements lke panels and forms */
+    --radius-pill: 999px; /*999 is very round, pill shaped elements */
   }
   
-  /* ===== Base ===== */
-  
-  *,
+  /* Base */
+  *, /* applying rule to everything */
   *::before,
   *::after {
-    box-sizing: border-box;
+    box-sizing: border-box; /* defining the width includes padding and border */
   }
   
   html,
   body {
-    margin: 0;
+    margin: 0; /* goes to edge of screen */
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", /* ChatGPT provided these fonts for clean looks */
       sans-serif;
-    background-color: var(--cream);
+    background-color: var(--cream); 
     color: var(--navy);
   }
   
-  /* ===== Header ===== */
+  /* Header */
   
   .site-header {
     background-color: var(--navy);
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* vertical alignment */
+    justify-content: space-between; /* horizontal alignment */
     padding: 0.75rem 1.75rem;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 10; /* for ordering elements on top of one another */
   }
   
   .site-header__left {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.75rem; /* scaling based on root when using 'rem' */
   }
   
   .site-header__brand {
@@ -68,7 +65,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 4px;
-    cursor: pointer;
+    cursor: pointer; /* using the hand with index finger when clickable */
   }
   
   .menu-toggle__bar {
@@ -91,19 +88,19 @@
     border: none;
     color: white;
     font-size: 0.85rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.08em; /* going off the font size */
     text-transform: uppercase;
-    cursor: default;
+    cursor: default; /* no pointer, not clickable! */
   }
   
-  /* ===== Layout ===== */
+  /* Layout */
   
   .layout {
-    max-width: 1240px;
+    max-width: 1240px; /* On huge screens → it stops growing past 1240px */
     margin: 1.75rem auto;
     padding: 0 1.5rem 2rem;
     display: grid;
-    grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 1.2fr);
+    grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 1.2fr); /* column 1 and 2 dimensions */
     gap: 1.5rem;
   }
   
@@ -113,12 +110,12 @@
     }
   }
   
-  /* ===== Panels ===== */
+  /* Panels  */
   
   .panel {
     background-color: #fdfbff;
     border-radius: var(--radius-xl);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06); /* tweaking opacity */
     padding: 1.25rem 1.5rem 1.5rem;
   }
   
@@ -152,10 +149,8 @@
     font-size: 1.25rem;
   }
   
-  /* ===== Saved trips ===== */
-  
+  /* Saved trips */
   .saved-trips {
-    /* No periwinkle wrapper – just spacing */
     background-color: transparent;
     border-radius: 0;
     padding: 0;
@@ -230,7 +225,7 @@
     gap: 0.5rem;
   }
   
-  /* Only used for custom routes now */
+  /* Only used for custom (the ones people create) routes now */
   .trip-card__badge {
     border-radius: var(--radius-pill);
     padding: 0.2rem 0.6rem;
@@ -239,7 +234,7 @@
     font-size: 0.75rem;
   }
   
-  /* ===== Form ===== */
+  /* Form */
   
   .route-form {
     display: flex;
@@ -268,15 +263,15 @@
     outline: none;
   }
   
-  input[type="text"]::placeholder {
+  input[type="text"]::placeholder { /* placeholder is the text inside box before user types */
     color: var(--gray);
   }
   
-  input[type="text"]:focus {
+  input[type="text"]:focus { /* when user clicks into the box */
     border-color: var(--slate);
   }
   
-  /* Button row */
+  /* Button row of the form*/
   
   .form-actions {
     margin-top: 0.5rem;
@@ -293,7 +288,7 @@
     transition: background-color 0.15s ease-out, opacity 0.15s ease-out;
   }
   
-  .btn--primary {
+  .btn--primary { /* primary defines how important the button is: find route/save route */ 
     background-color: var(--slate);
     color: white;
   }
@@ -302,7 +297,7 @@
     background-color: #565f92;
   }
   
-  /* ===== Sidebar ===== */
+  /* Sidebar */
   
   .backdrop {
     position: fixed;
@@ -316,13 +311,13 @@
     top: 0;
     left: 0;
     width: 260px;
-    max-width: 80vw;
+    max-width: 80vw; /* stands for the percent of the browser window's width */
     height: 100vh;
     background-color: white;
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.18);
     transform: translateX(-100%);
     transition: transform 0.2s ease-out;
-    z-index: 30;
+    z-index: 30; /* going on top a lot of things */
     display: flex;
     flex-direction: column;
   }
@@ -375,7 +370,7 @@
     cursor: pointer;
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
-    transition: background-color 0.15s ease-out;
+    transition: background-color 0.15s ease-out; /*When the background color changes (like when you hover a button), it fades smoothly over 0.15 seconds. */
   }
   
   .sidebar__link:hover {
@@ -393,7 +388,7 @@
     color: var(--gray);
   }
   
-  /* ===== Modal (unchanged) ===== */
+  /* Modal - small window that pops up (route details, confirming actions, alerts) */
   
   .modal-overlay {
     position: fixed;
@@ -468,5 +463,13 @@
     justify-content: flex-end;
   }
   
+  /*Used ChatGPT Model 5 with the following prompts:
+- What does "inherit" for for elements and where does it pull from?
+- What are CSS friendly fonts that are clean similar to Arial, little rounded?
+- When you generate CSS you use *::before and *::after for the hamburger icon, why?
+- Give me RGBA conversions of the following hex colors: #D9E0FF – Light periwinkle, #BFAA6B – Muted gold, #FFF5D9 – Cream, #6A77AB – Slate blue, #25305C – Deep navy, #808080 – Neutral gray. I don't really care about the opacity. 
+- what does: cursor: pointer mean
+- given this mockup of a prototype, what general CSS elements do you see that I need to create/style in the style file?
+- What are the general styling elements I need to create based on the prorotype I have uploaded. 
   
   
