@@ -101,7 +101,7 @@ var BUS_STOPS = [ // These are common bus stops in SD
       var parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) return parsed; //double checking if the parsed JSON input is really an array 
     } catch (error) {
-      console.warn("Could not read routes from storage:", e);
+      console.warn("Could not read routes from storage:", error);
     }
     return null;
   }
@@ -435,5 +435,6 @@ var BUS_STOPS = [ // These are common bus stops in SD
     * How do I remove a route from localStorage and the Saved Routes column?
     * I have several helper functions in my JS file (populateStopsList, initSavedRoutes, renderSavedTrips). 
     * Where should I call these in my script so the page initializes correctly, and why?
+    * How do I account for if the application cannot read something from Local Storage? Can you show me how this would look in a function.
   */ 
   
